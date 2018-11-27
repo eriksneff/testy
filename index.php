@@ -4,6 +4,6 @@
 
 	</head>
 	<body>
-		<?php echo 'Hello World' ?>
+		<?php echo 'Goodbye World' ?>
 	</body>
 </html>
