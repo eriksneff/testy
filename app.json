@@ -1,0 +1,35 @@
+{
+  "name": "mentalapp",
+  "scripts": {
+  },
+  "env": {
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "HEROKU_PARENT_APP_NAME": {
+      "required": true
+    },
+    "DATABASE_URL": {
+      "required": true
+    },
+    "LOG_LEVEL": {
+      "required": true
+    },
+    "MYSQL_DBNAME": {
+      "required": true
+    },
+    "MYSQL_PASSWORD": {
+      "required": true
+    },
+    "MYSQL_SERVER": {
+      "required": true
+    },
+    "MYSQL_USERNAME": {
+      "required": true
+    }
+  },
+  "addons": [
+    "newrelic",
+    "papertrail"
+  ]
+}

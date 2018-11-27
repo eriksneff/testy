@@ -1,0 +1,76 @@
+= Mavenlink PHP API Library
+
+{Mavenlink's}[http://mavenlink.com] project collaboration suite allows you to manage your business relationships, share files, and track project activity online from anywhere in the world. Within a project workspace in Mavenlink, you can agree on budget & schedule, track time, send invoices, get paid via PayPal, and complete work.
+
+The Mavenlink API provides programmatic access to many of Mavenlink's capabilities, including projects, posts, tasks, and time entries.  This library will be a full-featured PHP client for the Mavenlink REST API.  Right now we have implemented example usage for creation and listing of Mavenlink objects.
+
+== The REST API
+
+We have full {REST API and Ruby client documentation on the wiki}[https://github.com/mavenlink/mavenlink_ruby_api/wiki].
+
+== Example Usage
+
+    require 'lib/mavenlink_api.php'
+
+    $mavenlinkApi = new MavenlinkApi('<oauth_token>');
+
+    // Get workspaces
+    $workspaces_json = $mavenlinkApi->getWorkspaces();
+    $workspaces = json_decode($workspaces_json);
+
+    // Get a specific workspace
+    $workspace_json = $mavenlinkApi->getWorkspace(<workspace ID>);
+
+    // Get events
+    $events_json = $mavenlinkApi->getEvents();
+
+    // Create a post in a workspace (Please see the {REST API and Ruby client documentation on the wiki}[https://github.com/mavenlink/mavenlink_ruby_api/wiki] for valid parameters.)
+    $response = $mavenlinkApi->createPostForWorkspace(<Workspace ID>, array('post[message]' => 'Test message'))
+
+    // Update a post in a workspace
+    $response = $mavenlinkApi->updateWorkspacePost(8, 20, array("post[message]" => "Updated message"));
+
+    // Delete a workspace post
+    $response = $mavenlinkApi->deleteWorkspacePost(8, 19)
+
+    // Create a story in a workspace
+    $response = $mavenlinkApi->createStoryForWorkspace(8, array('story[title]' => 'Test story', 'story[story_type]' => 'deliverable'));
+    
+
+=== Example Scripts
+
+Try running our examples:
+
+    1: Edit examples/api_example.php to include your Mavenlink OAuth API Token.
+    2: Run
+       php examples/api_example.php
+       
+       or
+
+    1: Edit examples/test.php to include your Mavenlink OAuth API Token.
+    2: cd into examples and Run
+       php test.php
+
+== Credentials
+
+=== Finding your OAuth Token
+
+Your OAuth API Token is available on your Mavenlink user settings page within the API tab. Follow the instructions to register your application and retrieve your OAuth token.
+
+=== Security
+
+For security, the API is provided over SSL only.  Additionally, you should consider your API OAuth token to be much like a password.  Someone with your token can make changes to your Mavenlink account and perform actions in your name.  If you believe that your token has been compromised, login to Mavenlink and revoke your OAuth token from your account user settings page.
+
+== Contributing to the Mavenlink PHP API Library
+
+We strive to keep the PHP API up-to-date with our REST API.  However, if you find a feature missing, feel free to contribute it.
+
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
+* Fork the project
+* Start a feature/bugfix branch
+* Commit and push until you are happy with your contribution
+
+== Copyright
+
+Copyright (c) 2012 Mavenlink, Inc. See LICENSE.txt for further details.

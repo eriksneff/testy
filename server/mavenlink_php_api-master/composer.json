@@ -1,0 +1,14 @@
+{
+    "name": "mavenlink/mavenlink_php_api",
+    "description": "Mavenlink PHP API Library",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mavenlink OSS",
+            "email": "oss@mavenlink.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
